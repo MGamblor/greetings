@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Greetings</title>
+ <!-- <link rel="stylesheet" href="assets/css/.css" type="text/css" /> -->
+ 
+<!--
+############################################################################
+#                               CSS BELOW                                  #
+############################################################################
+-->
+		
+<style type="text/css">
+
+#box {
+	margin: 0 auto;
+	background-color: yellow;
+	width: 260px;
+	padding: 10px;
+	border-radius: 4px;
+	border: 2px solid black;
+}
+	
+form {
+    margin: 10px 0px 0px 0px;
+}
+
+input {
+    margin: 10px 5px 5px 5px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+</style>
+	
+	
+</head>
+
+<!--
+############################################################################
+#                              HTML BELOW                                  #
+############################################################################
+-->
+	
+<body>
+	
+<div id="box">	
+	
+<lable>First name:
+  <input id="firstName" type="text" />
+</lable>
+
+<br/>
+
+<lable>Last name:
+  <input id="lastName" type="text" />
+</lable>
+
+<br/>
+
+<form>
+  <lable> Language:
+	<select id="myList">
+	  <option>english</option>
+	  <option>spanish</option>
+	  <option>french</option>
+	</select>
+  </lable>
+</form>
+
+<input type="button" value="submit" onclick="greetings();" />
+
+<p id="greet"></p>
+
+</div>	
+
+<!--
+############################################################################
+#                          JAVASCRIPT BELOW                                #
+############################################################################
+-->
+	
+<script type="text/javascript">
+	
+function greetings() {
+  var person = {
+    a: document.getElementById('firstName').value,
+    b: document.getElementById('lastName').value
+  }
+
+  var myList = document.getElementById("myList");
+  var selected = myList.options[myList.selectedIndex].text;
+
+  if (selected === 'english') {
+    document.getElementById('greet').innerHTML = 'Hello ' + person.a + " " + person.b;
+  }
+
+  if (selected === 'spanish') {
+    document.getElementById('greet').innerHTML = 'Hola ' + person.a + " " + person.b;
+  }
+
+  if (selected === 'french') {
+    document.getElementById('greet').innerHTML = 'Bonjour ' + person.a + " " + person.b;
+  }
+
+  if (person.a.length < 1 || person.b.length < 1) {
+    document.getElementById('greet').innerHTML = "Please enter a first and last name";
+  }
+}
+	
+	
+</script>
+	
+	
+</body>
+
+
+</html>
